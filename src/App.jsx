@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
-import Dropzone from "./dropzone/index";
+import Dropzone from "./dropzone";
 
 export default class App extends Component {
   render() {
@@ -8,8 +8,6 @@ export default class App extends Component {
       <div>
         <div className="myContainer">
           <Dropzone></Dropzone>
-
-          <div id="result"></div>
         </div>
       </div>
     );
