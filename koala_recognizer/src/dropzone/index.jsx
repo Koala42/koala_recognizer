@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import * as mobilenet from "@tensorflow-models/mobilenet";
 import styles from "./dropzone.module.css";
-import ImageZone from "../imagezone";
 let net;
 async function app() {
   // Load the model.
@@ -16,8 +15,6 @@ async function app() {
     : (document.getElementById("result").innerHTML = `This is not a koala, this is ${
         result[0].className.split(",")[0]
       }`);
-
-  console.log(result);
 }
 
 export default function Dropzone() {
@@ -48,7 +45,7 @@ export default function Dropzone() {
           <p>Drag 'n' drop some files here, or click to select files</p>
         )}
       </div>
-      <ImageZone src={path}></ImageZone>
+      <img id="img" src={path} crossOrigin="true" width="50%" height="50%" alt="" />;
     </div>
   );
 }
