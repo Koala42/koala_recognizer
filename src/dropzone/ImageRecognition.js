@@ -10,10 +10,10 @@ export default async function ImageRecognition() {
   const result = await net.classify(imgEl);
 
   result[0].className.split(",")[0] === "koala"
-    ? (document.getElementById("result").innerHTML = "Yes, This is a koala")
-    : (document.getElementById("result").innerHTML = `This is not a koala, this is a ${
+    ? (document.getElementById("result").innerHTML = " Yes, This is a koala! Aww, so cute 😍")
+    : (document.getElementById("result").innerHTML = `This is not a koala! Is it ${
         result[0].className.split(",")[0]
-      }`);
+      }?`);
 
   return <div></div>;
 }
