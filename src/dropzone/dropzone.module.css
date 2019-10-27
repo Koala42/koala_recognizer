@@ -1,13 +1,8 @@
 .dropzone {
-  /* display: flex;
+  display: flex;
   align-content: center;
   align-items: center;
-  justify-content: center; */
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  margin-left: 10%;
+  justify-content: center;
   background-color: #f0f0f0;
   width: 500px;
   padding: 35px;
@@ -22,18 +17,14 @@
   margin: 0;
 }
 
-.mycontainer {
+.container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-content: center;
-  text-align: center;
   align-items: center;
-  justify-content: space-evenly;
+  text-align: center;
 }
+
 .image {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
-  margin-left: 5%;
+  margin-left: 50px;
 }

@@ -11,7 +11,7 @@ export default async function ImageRecognition() {
 
   result[0].className.split(",")[0] === "koala"
     ? (document.getElementById("result").innerHTML = " Yes, This is a koala! Aww, so cute 😍")
-    : (document.getElementById("result").innerHTML = `This is not a koala! Is it ${
+    : (document.getElementById("result").innerHTML = `This is not a koala! Is this a ${
         result[0].className.split(",")[0]
       }?`);
 

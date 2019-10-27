@@ -24,7 +24,7 @@ export default function Dropzone() {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>Is it a Koala?</h1>
-      <div className={styles.mycontainer}>
+      <div className={styles.container}>
         <div className={styles.dropzone} {...getRootProps()}>
           <input {...getInputProps()} />
           {isDragActive ? (
@@ -39,10 +39,11 @@ export default function Dropzone() {
             src={path}
             crossOrigin="true"
             style={{ marginBottom: "20px", borderRadius: "12px" }}
-            width="50%"
-            height="50%"
+            width="250"
+            height="250"
             alt=""
           />
+
           <div id="result"></div>
         </div>
       </div>
