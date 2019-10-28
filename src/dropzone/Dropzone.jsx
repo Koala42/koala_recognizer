@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styles from "./dropzone.module.css";
-import ImageRecognition from "./ImageRecognition";
+import imageRecognition from "./ImageRecognition";
 
 export default function Dropzone() {
   const [path, setPath] = useState("");
-
+  const [text, setText] = useState("");
   const openFile = input => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -15,9 +15,12 @@ export default function Dropzone() {
     reader.readAsDataURL(input);
   };
 
-  const onDrop = useCallback(acceptedFiles => {
+  const onDrop = useCallback(async acceptedFiles => {
     openFile(acceptedFiles[0]);
-    ImageRecognition();
+    //setstate result
+    setText("Loading...");
+    let text = await imageRecognition();
+    setText(text);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
@@ -39,12 +42,10 @@ export default function Dropzone() {
             src={path}
             crossOrigin="true"
             style={{ marginBottom: "20px", borderRadius: "12px" }}
-            width="250"
             height="250"
             alt=""
           />
-
-          <div id="result"></div>
+          <div id="result">{text}</div>
         </div>
       </div>
     </div>

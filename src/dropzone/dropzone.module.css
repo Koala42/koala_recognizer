@@ -28,3 +28,31 @@
 .image {
   margin-left: 50px;
 }
+
+@media only screen and (max-width: 500px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .image {
+    margin-left: 0;
+  }
+  .dropzone {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    width: 300px;
+    padding: 35px;
+    margin-bottom: 50px;
+    border: 3px dashed #c6c6c6;
+    color: #636363;
+    font-size: 1.25em;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+}
