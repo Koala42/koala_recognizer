@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styles from "./dropzone.module.css";
 import imageRecognition from "./ImageRecognition";
-
 export default function Dropzone() {
   const [path, setPath] = useState("");
   const [text, setText] = useState("");
@@ -17,9 +16,16 @@ export default function Dropzone() {
 
   const onDrop = useCallback(async acceptedFiles => {
     openFile(acceptedFiles[0]);
-    //setstate result
+    const file = acceptedFiles[0],
+      url = URL.createObjectURL(file),
+      img = new Image();
+
+    img.onload = function() {
+      URL.revokeObjectURL(this.src);
+    };
+    img.src = url;
     setText("Loading...");
-    let text = await imageRecognition();
+    let text = await imageRecognition(img);
     setText(text);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });

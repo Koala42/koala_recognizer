@@ -1,11 +1,12 @@
 import * as mobilenet from "@tensorflow-models/mobilenet";
 
-export default async function imageRecognition() {
+export default async function imageRecognition(image) {
   let net;
 
   // Load the model.
   net = await mobilenet.load();
-  const imgEl = document.getElementById("img");
+  const imgEl = image;
+
   const result = await net.classify(imgEl);
   let text;
   result[0].className.split(",")[0] === "koala"
